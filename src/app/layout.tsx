@@ -3,6 +3,7 @@ import { Special_Elite, IBM_Plex_Mono, Work_Sans } from "next/font/google";
 import "./globals.css";
 import { LangProvider } from "@/lib/i18n";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
+import { OfflineBanner } from "@/components/OfflineBanner";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const specialElite = Special_Elite({
@@ -62,7 +63,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${specialElite.variable} ${plexMono.variable} ${workSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <LangProvider>{children}</LangProvider>
+        <LangProvider>
+          {children}
+          <OfflineBanner />
+        </LangProvider>
         <ServiceWorkerRegister />
       </body>
     </html>

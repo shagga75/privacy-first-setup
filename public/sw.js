@@ -1,5 +1,12 @@
 const CACHE_NAME = "pfs-cache-v1";
-const APP_SHELL = ["/", "/wizard", "/privacy-score", "/icon-192.png", "/icon-512.png"];
+const APP_SHELL = [
+  "/",
+  "/wizard",
+  "/privacy-score",
+  "/glossary",
+  "/icon-192.png",
+  "/icon-512.png",
+];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

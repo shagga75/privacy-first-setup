@@ -42,6 +42,7 @@ export function Header() {
         <nav className="flex items-center gap-6">
           <NavLink href="/wizard">{t("nav.guide")}</NavLink>
           <NavLink href="/privacy-score">{t("nav.score")}</NavLink>
+          <NavLink href="/glossary">{t("nav.glossary")}</NavLink>
           <select
             value={lang}
             onChange={(e) => setLang(e.target.value as Lang)}

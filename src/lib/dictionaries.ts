@@ -8,7 +8,13 @@ export const LANG_NAMES: Record<Lang, string> = {
 };
 
 type Dict = {
-  nav: { brand: string; guide: string; score: string; github: string };
+  nav: {
+    brand: string;
+    guide: string;
+    score: string;
+    glossary: string;
+    github: string;
+  };
   landing: {
     kicker: string;
     heroTitle: string;
@@ -87,6 +93,14 @@ type Dict = {
     resetButton: string;
     privacyNote: string;
   };
+  glossary: {
+    kicker: string;
+    title: string;
+    subtitle: string;
+  };
+  common: {
+    offlineNotice: string;
+  };
 };
 
 const es: Dict = {
@@ -94,6 +108,7 @@ const es: Dict = {
     brand: "Privacy First Setup",
     guide: "Guía",
     score: "Privacy Score",
+    glossary: "Glosario",
     github: "Código fuente",
   },
   landing: {
@@ -193,6 +208,15 @@ const es: Dict = {
     privacyNote:
       "Nota de privacidad: esta herramienta no hace consultas a servidores externos ni de blockchain. El detector de reutilización compara texto plano localmente.",
   },
+  glossary: {
+    kicker: "Referencia",
+    title: "Glosario",
+    subtitle:
+      "Los términos técnicos que vas a encontrar en la guía y el Privacy Score, explicados sin vueltas.",
+  },
+  common: {
+    offlineNotice: "Sin conexión — mostrando la versión guardada en caché",
+  },
 };
 
 const en: Dict = {
@@ -200,6 +224,7 @@ const en: Dict = {
     brand: "Privacy First Setup",
     guide: "Guide",
     score: "Privacy Score",
+    glossary: "Glossary",
     github: "Source code",
   },
   landing: {
@@ -299,6 +324,15 @@ const en: Dict = {
     privacyNote:
       "Privacy note: this tool makes no calls to external or blockchain servers. The reuse detector compares plain text locally.",
   },
+  glossary: {
+    kicker: "Reference",
+    title: "Glossary",
+    subtitle:
+      "The technical terms you'll run into across the guide and the Privacy Score, explained plainly.",
+  },
+  common: {
+    offlineNotice: "Offline — showing the cached version",
+  },
 };
 
 const pt: Dict = {
@@ -306,6 +340,7 @@ const pt: Dict = {
     brand: "Privacy First Setup",
     guide: "Guia",
     score: "Privacy Score",
+    glossary: "Glossário",
     github: "Código fonte",
   },
   landing: {
@@ -405,6 +440,15 @@ const pt: Dict = {
     privacyNote:
       "Nota de privacidade: esta ferramenta não faz consultas a servidores externos nem de blockchain. O detector de reutilização compara texto simples localmente.",
   },
+  glossary: {
+    kicker: "Referência",
+    title: "Glossário",
+    subtitle:
+      "Os termos técnicos que você vai encontrar no guia e no Privacy Score, explicados sem rodeios.",
+  },
+  common: {
+    offlineNotice: "Sem conexão — mostrando a versão salva em cache",
+  },
 };
 
 const fr: Dict = {
@@ -412,6 +456,7 @@ const fr: Dict = {
     brand: "Privacy First Setup",
     guide: "Guide",
     score: "Privacy Score",
+    glossary: "Glossaire",
     github: "Code source",
   },
   landing: {
@@ -510,6 +555,15 @@ const fr: Dict = {
     resetButton: "Réinitialiser le questionnaire",
     privacyNote:
       "Note de confidentialité : cet outil n'effectue aucune requête vers des serveurs externes ni vers la blockchain. Le détecteur de réutilisation compare du texte brut localement.",
+  },
+  glossary: {
+    kicker: "Référence",
+    title: "Glossaire",
+    subtitle:
+      "Les termes techniques que tu vas croiser dans le guide et le Privacy Score, expliqués simplement.",
+  },
+  common: {
+    offlineNotice: "Hors ligne — affichage de la version mise en cache",
   },
 };
 
