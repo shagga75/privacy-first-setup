@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLang } from "@/lib/i18n";
+import { LANG_NAMES, type Lang } from "@/lib/dictionaries";
 
 function NavLink({ href, children }: { href: string; children: string }) {
   const pathname = usePathname();
@@ -41,14 +42,18 @@ export function Header() {
         <nav className="flex items-center gap-6">
           <NavLink href="/wizard">{t("nav.guide")}</NavLink>
           <NavLink href="/privacy-score">{t("nav.score")}</NavLink>
-          <button
-            type="button"
-            onClick={() => setLang(lang === "es" ? "en" : "es")}
-            className="cursor-pointer rounded border border-surface-line px-2 py-1 font-mono text-xs uppercase tracking-wider text-muted transition-colors duration-150 hover:border-kraft hover:text-kraft-bright"
-            aria-label="Toggle language"
+          <select
+            value={lang}
+            onChange={(e) => setLang(e.target.value as Lang)}
+            className="cursor-pointer rounded border border-surface-line bg-surface px-2 py-1 font-mono text-xs uppercase tracking-wider text-muted transition-colors duration-150 hover:border-kraft hover:text-kraft-bright focus:border-kraft focus:outline-none"
+            aria-label="Language"
           >
-            {t("common.langToggle")}
-          </button>
+            {(Object.keys(LANG_NAMES) as Lang[]).map((l) => (
+              <option key={l} value={l}>
+                {LANG_NAMES[l]}
+              </option>
+            ))}
+          </select>
         </nav>
       </div>
     </header>

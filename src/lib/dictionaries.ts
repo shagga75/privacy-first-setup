@@ -1,4 +1,11 @@
-export type Lang = "es" | "en";
+export type Lang = "es" | "en" | "pt" | "fr";
+
+export const LANG_NAMES: Record<Lang, string> = {
+  es: "Español",
+  en: "English",
+  pt: "Português",
+  fr: "Français",
+};
 
 type Dict = {
   nav: { brand: string; guide: string; score: string; github: string };
@@ -80,7 +87,6 @@ type Dict = {
     resetButton: string;
     privacyNote: string;
   };
-  common: { langToggle: string };
 };
 
 const es: Dict = {
@@ -186,9 +192,6 @@ const es: Dict = {
     resetButton: "Reiniciar cuestionario",
     privacyNote:
       "Nota de privacidad: esta herramienta no hace consultas a servidores externos ni de blockchain. El detector de reutilización compara texto plano localmente.",
-  },
-  common: {
-    langToggle: "EN",
   },
 };
 
@@ -296,9 +299,218 @@ const en: Dict = {
     privacyNote:
       "Privacy note: this tool makes no calls to external or blockchain servers. The reuse detector compares plain text locally.",
   },
-  common: {
-    langToggle: "ES",
+};
+
+const pt: Dict = {
+  nav: {
+    brand: "Privacy First Setup",
+    guide: "Guia",
+    score: "Privacy Score",
+    github: "Código fonte",
+  },
+  landing: {
+    kicker: "Dossiê 001 · Autocustódia sem vazamentos",
+    heroTitle: "Sua carteira já está vazando mais do que você imagina.",
+    heroSubtitle:
+      "Guia interativo e ferramentas de código aberto para configurar uma carteira Bitcoin com boas práticas de privacidade desde o primeiro recebimento. Sem contas, sem backend, sem que seus dados saiam do seu navegador.",
+    ctaGuide: "Começar o guia",
+    ctaScore: "Auditar minha privacidade",
+    redactedLabel: "Exemplo — passe o mouse para revelar",
+    redactedAddress: "bc1q███████████████████████████",
+    redactedNote:
+      "É assim que um observador da blockchain vê um endereço reutilizado: um padrão repetido que conecta todos os seus pagamentos.",
+    problemKicker: "O problema",
+    problemTitle: "A privacidade não é o estado padrão",
+    problemBody:
+      "A maioria das carteiras, mesmo as de usuários que realmente querem privacidade, acaba reutilizando endereços, misturando UTXOs de origens diferentes ou usando ferramentas técnicas demais para manter o hábito. O resultado é o mesmo que não criptografar nada: qualquer pessoa com um explorador de blockchain pode reconstruir todo o seu histórico financeiro.",
+    pillarsKicker: "O método",
+    pillarsTitle: "Três camadas, em ordem",
+    pillar1Title: "01 · Configuração",
+    pillar1Body:
+      "Carteira HD, coin control ativado, conexão ao seu próprio node ou via Tor. Definido uma única vez.",
+    pillar2Title: "02 · Hábitos",
+    pillar2Body:
+      "Labels, zero reutilização de endereços, verificar o troco em cada transação. Se repete toda vez que você usa a carteira.",
+    pillar3Title: "03 · Técnicas avançadas",
+    pillar3Body:
+      "Payjoin, Silent Payments, CoinJoin, passphrase. Somam-se quando a base já está sólida.",
+    whoKicker: "Para quem é isso",
+    whoTitle: "Pensado para quem mais precisa",
+    whoBody:
+      "Ativistas, jornalistas, dissidentes, e qualquer pessoa em países com controles de capital, censura financeira ou vigilância estatal — mas também para quem simplesmente não quer que seu empregador, seu senhorio ou um desconhecido vejam o seu patrimônio. Todo o conteúdo é traduzível e funciona offline depois de carregado.",
+    footerNote:
+      "Código aberto, sem analytics, sem contas. Todo o cálculo do Privacy Score roda no seu navegador.",
+  },
+  wizard: {
+    kicker: "Expediente em construção",
+    title: "Monte sua configuração recomendada",
+    subtitle:
+      "Três passos. No final você vai ter uma checklist concreta, ordenada por prioridade, para o seu nível e a sua forma de usar Bitcoin.",
+    stepLevel: "Nível",
+    stepUseCase: "Uso",
+    stepResult: "Expediente",
+    levelHeading: "Qual é o seu nível com Bitcoin hoje?",
+    levelBeginnerTitle: "Iniciante",
+    levelBeginnerBody:
+      "Você já tem ou está prestes a instalar sua primeira carteira. Priorizamos hábitos simples de aplicar desde o primeiro dia.",
+    levelIntermediateTitle: "Intermediário",
+    levelIntermediateBody:
+      "Você já usa coin control ou roda seu próprio node. Somamos técnicas mais avançadas: CoinJoin, passphrase, Payjoin.",
+    useCaseHeading: "Para que você vai usar principalmente essa carteira?",
+    useCaseSavingsTitle: "Poupança de longo prazo",
+    useCaseSavingsBody:
+      "Guardar sats por anos. Prioridade: que ninguém consiga estimar quanto você tem.",
+    useCaseDailyTitle: "Gastos do dia a dia",
+    useCaseDailyBody:
+      "Pagamentos frequentes a comércios, fornecedores ou pessoas. Prioridade: que seus pagamentos não possam ser vinculados entre si.",
+    useCaseDonationsTitle: "Doações privadas",
+    useCaseDonationsBody:
+      "Você recebe fundos de causas ou campanhas publicamente. Prioridade: que um endereço público não exponha quem doou o quê.",
+    back: "Voltar",
+    next: "Próximo",
+    resultHeading: "Seu expediente de configuração",
+    resultIntro:
+      "Ordenado por impacto na sua privacidade. Marque cada item conforme for aplicando na sua carteira.",
+    downloadButton: "Baixar checklist (.md)",
+    restartButton: "Começar de novo",
+    categorySetup: "Configuração inicial",
+    categoryHabit: "Hábito recorrente",
+    categoryAdvanced: "Técnica avançada",
+    scoreCta: "Já tem uma carteira configurada? Meça o seu Privacy Score →",
+  },
+  score: {
+    kicker: "Auditoria de campo",
+    title: "Privacy Score",
+    subtitle:
+      "Responda o questionário com honestidade. Tudo é calculado no seu navegador — nada é enviado a nenhum servidor.",
+    questionnaireHeading: "Questionário de hábitos",
+    yes: "Sim",
+    no: "Não",
+    unsure: "Não sei",
+    addressToolHeading: "Detector de reutilização de endereços",
+    addressToolBody:
+      "Cole uma lista de endereços (um por linha) do seu histórico de recebimentos. São comparados localmente no seu navegador — nenhum é enviado para a internet.",
+    addressPlaceholder: "bc1q...\nbc1q...\nbc1q...",
+    checkAddresses: "Analisar endereços",
+    reusedFound: (n: number) =>
+      `Foram encontrados ${n} endereço(s) repetido(s). Isso penaliza fortemente o seu score.`,
+    noReuseFound: "Nenhum endereço repetido foi detectado na lista colada.",
+    noAddressesYet: "Você ainda não analisou nenhuma lista de endereços.",
+    scoreLabel: "Score de privacidade",
+    verdictApproved: "APROVADO",
+    verdictReview: "A REVISAR",
+    verdictCritical: "CRÍTICO",
+    breakdownHeading: "Detalhe por item",
+    resetButton: "Reiniciar questionário",
+    privacyNote:
+      "Nota de privacidade: esta ferramenta não faz consultas a servidores externos nem de blockchain. O detector de reutilização compara texto simples localmente.",
   },
 };
 
-export const dictionaries: Record<Lang, Dict> = { es, en };
+const fr: Dict = {
+  nav: {
+    brand: "Privacy First Setup",
+    guide: "Guide",
+    score: "Privacy Score",
+    github: "Code source",
+  },
+  landing: {
+    kicker: "Dossier 001 · Autogarde sans fuites",
+    heroTitle: "Ton wallet fuite déjà plus que tu ne le penses.",
+    heroSubtitle:
+      "Guide interactif et outils open source pour configurer un wallet Bitcoin avec de bonnes pratiques de confidentialité dès la première réception. Sans compte, sans backend, sans que tes données ne quittent ton navigateur.",
+    ctaGuide: "Commencer le guide",
+    ctaScore: "Auditer ma confidentialité",
+    redactedLabel: "Exemple — survole avec la souris pour révéler",
+    redactedAddress: "bc1q███████████████████████████",
+    redactedNote:
+      "Voici ce qu'un observateur de la blockchain voit d'une adresse réutilisée : un motif répété qui relie tous tes paiements.",
+    problemKicker: "Le problème",
+    problemTitle: "La confidentialité n'est pas l'état par défaut",
+    problemBody:
+      "La plupart des wallets, même chez les utilisateurs qui veulent vraiment de la confidentialité, finissent par réutiliser des adresses, mélanger des UTXOs d'origines différentes, ou utiliser des outils trop techniques pour tenir l'habitude. Le résultat est le même que si rien n'était chiffré : n'importe qui avec un explorateur de blockchain peut reconstituer tout ton historique financier.",
+    pillarsKicker: "La méthode",
+    pillarsTitle: "Trois couches, dans l'ordre",
+    pillar1Title: "01 · Configuration",
+    pillar1Body:
+      "Wallet HD, coin control activé, connexion à ton propre nœud ou via Tor. Se définit une seule fois.",
+    pillar2Title: "02 · Habitudes",
+    pillar2Body:
+      "Labels, zéro réutilisation d'adresses, vérifier la monnaie à chaque transaction. Se répète à chaque utilisation du wallet.",
+    pillar3Title: "03 · Techniques avancées",
+    pillar3Body:
+      "Payjoin, Silent Payments, CoinJoin, passphrase. S'ajoutent une fois la base bien solide.",
+    whoKicker: "Pour qui c'est fait",
+    whoTitle: "Pensé pour ceux qui en ont le plus besoin",
+    whoBody:
+      "Activistes, journalistes, dissidents, et toute personne dans des pays avec contrôle des capitaux, censure financière ou surveillance étatique — mais aussi pour quiconque ne veut simplement pas que son employeur, son propriétaire ou un inconnu puisse voir son patrimoine. Tout le contenu est traduisible et fonctionne hors ligne une fois chargé.",
+    footerNote:
+      "Open source, sans analytics, sans compte. Tout le calcul du Privacy Score s'exécute dans ton navigateur.",
+  },
+  wizard: {
+    kicker: "Dossier en construction",
+    title: "Construis ta configuration recommandée",
+    subtitle:
+      "Trois étapes. À la fin, tu auras une checklist concrète, classée par priorité, adaptée à ton niveau et à ton usage de Bitcoin.",
+    stepLevel: "Niveau",
+    stepUseCase: "Usage",
+    stepResult: "Dossier",
+    levelHeading: "Quel est ton niveau avec Bitcoin aujourd'hui ?",
+    levelBeginnerTitle: "Débutant",
+    levelBeginnerBody:
+      "Tu as déjà ou tu es sur le point d'installer ton premier wallet. On priorise des habitudes simples à appliquer dès le premier jour.",
+    levelIntermediateTitle: "Intermédiaire",
+    levelIntermediateBody:
+      "Tu utilises déjà le coin control ou tu fais tourner ton propre nœud. On ajoute des techniques plus avancées : CoinJoin, passphrase, Payjoin.",
+    useCaseHeading: "À quoi va principalement servir ce wallet ?",
+    useCaseSavingsTitle: "Épargne à long terme",
+    useCaseSavingsBody:
+      "Conserver des sats pendant des années. Priorité : que personne ne puisse estimer combien tu possèdes.",
+    useCaseDailyTitle: "Dépenses quotidiennes",
+    useCaseDailyBody:
+      "Paiements fréquents à des commerces, prestataires ou particuliers. Priorité : que tes paiements ne puissent pas être reliés entre eux.",
+    useCaseDonationsTitle: "Dons privés",
+    useCaseDonationsBody:
+      "Tu reçois des fonds pour des causes ou des campagnes publiquement. Priorité : qu'une adresse publique n'expose pas qui a donné quoi.",
+    back: "Retour",
+    next: "Suivant",
+    resultHeading: "Ton dossier de configuration",
+    resultIntro:
+      "Classé par impact sur ta confidentialité. Coche chaque point au fur et à mesure que tu l'appliques dans ton wallet.",
+    downloadButton: "Télécharger la checklist (.md)",
+    restartButton: "Recommencer",
+    categorySetup: "Configuration initiale",
+    categoryHabit: "Habitude récurrente",
+    categoryAdvanced: "Technique avancée",
+    scoreCta: "Tu as déjà un wallet configuré ? Mesure ton Privacy Score →",
+  },
+  score: {
+    kicker: "Audit de terrain",
+    title: "Privacy Score",
+    subtitle:
+      "Réponds au questionnaire honnêtement. Tout est calculé dans ton navigateur — rien n'est envoyé à un serveur.",
+    questionnaireHeading: "Questionnaire d'habitudes",
+    yes: "Oui",
+    no: "Non",
+    unsure: "Je ne sais pas",
+    addressToolHeading: "Détecteur de réutilisation d'adresses",
+    addressToolBody:
+      "Colle une liste d'adresses (une par ligne) de ton historique de réceptions. Elles sont comparées localement dans ton navigateur — aucune n'est envoyée sur internet.",
+    addressPlaceholder: "bc1q...\nbc1q...\nbc1q...",
+    checkAddresses: "Analyser les adresses",
+    reusedFound: (n: number) =>
+      `${n} adresse(s) répétée(s) trouvée(s). Cela pénalise fortement ton score.`,
+    noReuseFound: "Aucune adresse répétée détectée dans la liste collée.",
+    noAddressesYet: "Tu n'as pas encore analysé de liste d'adresses.",
+    scoreLabel: "Score de confidentialité",
+    verdictApproved: "APPROUVÉ",
+    verdictReview: "À REVOIR",
+    verdictCritical: "CRITIQUE",
+    breakdownHeading: "Détail par point",
+    resetButton: "Réinitialiser le questionnaire",
+    privacyNote:
+      "Note de confidentialité : cet outil n'effectue aucune requête vers des serveurs externes ni vers la blockchain. Le détecteur de réutilisation compare du texte brut localement.",
+  },
+};
+
+export const dictionaries: Record<Lang, Dict> = { es, en, pt, fr };
