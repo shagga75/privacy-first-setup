@@ -21,6 +21,7 @@ export function FolderTabs({
             key={s}
             type="button"
             disabled={!reachable}
+            aria-current={active ? "step" : undefined}
             onClick={() => reachable && onSelect(s)}
             className={`relative -mb-px rounded-t-sm border border-b-0 px-4 py-2 font-mono text-xs uppercase tracking-wide transition-colors duration-150 ${
               active

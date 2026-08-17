@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex-1">
+      <main id="main" className="flex-1">
         <section className="dossier-grain border-b border-surface-line">
           <div className="mx-auto max-w-5xl px-6 py-20">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-kraft-bright">

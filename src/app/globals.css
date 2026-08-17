@@ -23,10 +23,18 @@
   --color-kraft: #c9a063;
   --color-kraft-bright: #e0b878;
   --color-stamp-red: #b23a2e;
-  --color-stamp-red-bright: #d4574a;
+  /* Ajustado desde #d4574a: ese tono no llegaba a 4.5:1 (WCAG AA) como
+     texto sobre charcoal/surface. */
+  --color-stamp-red-bright: #e36659;
   --color-stamp-green: #4c7a5e;
   --color-stamp-green-bright: #6ba185;
   --color-stamp-amber: #b8862f;
+  /* Variantes "deep" — únicamente para fondo con texto parchment encima
+     (ej. botón activo del cuestionario). Las bases de arriba no llegan a
+     4.5:1 con texto claro; estas sí. */
+  --color-stamp-green-deep: #416850;
+  --color-stamp-red-deep: #a9372c;
+  --color-stamp-amber-deep: #78571f;
 
   --background: var(--color-charcoal);
   --foreground: var(--color-parchment);
@@ -142,8 +150,13 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .redacted .redacted-bar {
-    transition: none;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

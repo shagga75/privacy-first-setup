@@ -42,10 +42,10 @@ export function QuestionRow({
                   ? {
                       background:
                         opt === "yes"
-                          ? "var(--color-stamp-green)"
+                          ? "var(--color-stamp-green-deep)"
                           : opt === "no"
-                            ? "var(--color-stamp-red)"
-                            : "var(--color-stamp-amber)",
+                            ? "var(--color-stamp-red-deep)"
+                            : "var(--color-stamp-amber-deep)",
                       color: "var(--color-parchment)",
                       borderColor: "transparent",
                     }

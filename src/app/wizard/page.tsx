@@ -50,7 +50,7 @@ export default function WizardPage() {
   return (
     <>
       <Header />
-      <main className="flex-1">
+      <main id="main" className="flex-1">
         <div className="mx-auto max-w-4xl px-6 py-14">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-kraft-bright">
             {t("wizard.kicker")}

@@ -100,6 +100,9 @@ type Dict = {
   };
   common: {
     offlineNotice: string;
+    menu: string;
+    language: string;
+    skipToContent: string;
   };
 };
 
@@ -216,6 +219,9 @@ const es: Dict = {
   },
   common: {
     offlineNotice: "Sin conexión — mostrando la versión guardada en caché",
+    menu: "Menú",
+    language: "Idioma",
+    skipToContent: "Saltar al contenido",
   },
 };
 
@@ -332,6 +338,9 @@ const en: Dict = {
   },
   common: {
     offlineNotice: "Offline — showing the cached version",
+    menu: "Menu",
+    language: "Language",
+    skipToContent: "Skip to content",
   },
 };
 
@@ -448,6 +457,9 @@ const pt: Dict = {
   },
   common: {
     offlineNotice: "Sem conexão — mostrando a versão salva em cache",
+    menu: "Menu",
+    language: "Idioma",
+    skipToContent: "Pular para o conteúdo",
   },
 };
 
@@ -564,6 +576,9 @@ const fr: Dict = {
   },
   common: {
     offlineNotice: "Hors ligne — affichage de la version mise en cache",
+    menu: "Menu",
+    language: "Langue",
+    skipToContent: "Aller au contenu",
   },
 };
 

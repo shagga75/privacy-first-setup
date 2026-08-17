@@ -67,7 +67,7 @@ export default function PrivacyScorePage() {
   return (
     <>
       <Header />
-      <main className="flex-1">
+      <main id="main" className="flex-1">
         <div className="mx-auto max-w-4xl px-6 py-14">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-kraft-bright">
             {t("score.kicker")}
@@ -119,7 +119,10 @@ export default function PrivacyScorePage() {
           )}
 
           <section className="mt-12">
-            <h2 className="font-mono text-sm uppercase tracking-wide text-foreground">
+            <h2
+              id="address-tool-heading"
+              className="font-mono text-sm uppercase tracking-wide text-foreground"
+            >
               {t("score.addressToolHeading")}
             </h2>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
@@ -130,7 +133,8 @@ export default function PrivacyScorePage() {
               onChange={(e) => setAddressInput(e.target.value)}
               placeholder={dict.score.addressPlaceholder}
               rows={6}
-              className="mt-4 w-full resize-y rounded-sm border border-surface-line bg-surface p-4 font-mono text-sm text-foreground placeholder:text-muted/60 focus:border-kraft focus:outline-none"
+              aria-labelledby="address-tool-heading"
+              className="mt-4 w-full resize-y rounded-sm border border-surface-line bg-surface p-4 font-mono text-sm text-foreground placeholder:text-muted/60 focus:border-kraft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-kraft-bright"
             />
             <button
               type="button"
