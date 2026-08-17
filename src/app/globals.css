@@ -1,26 +1,172 @@
 @import "tailwindcss";
 
+/*
+  Dirección visual: "manual de campo declasificado" — dossier de
+  inteligencia redactado. Charcoal cálido tipo carpeta de manila bajo
+  lámpara, tinta de sello roja/verde, acento kraft. Nada de naranja
+  Bitcoin ni de cream+terracotta.
+*/
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-paper: #ede6d8;
+  --color-paper-dim: #ddd3bf;
+  --color-ink: #211d18;
+  --color-ink-soft: #4a423a;
+
+  --color-charcoal: #1e1b16;
+  --color-charcoal-raised: #29241d;
+  --color-charcoal-line: #3a332a;
+  --color-parchment: #ede3cf;
+  --color-parchment-dim: #b9ac93;
+
+  --color-redact: #0a0908;
+  --color-kraft: #c9a063;
+  --color-kraft-bright: #e0b878;
+  --color-stamp-red: #b23a2e;
+  --color-stamp-red-bright: #d4574a;
+  --color-stamp-green: #4c7a5e;
+  --color-stamp-green-bright: #6ba185;
+  --color-stamp-amber: #b8862f;
+
+  --background: var(--color-charcoal);
+  --foreground: var(--color-parchment);
+  --surface: var(--color-charcoal-raised);
+  --surface-line: var(--color-charcoal-line);
+  --muted: var(--color-parchment-dim);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-surface: var(--surface);
+  --color-surface-line: var(--surface-line);
+  --color-muted: var(--muted);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-kraft: var(--color-kraft);
+  --color-kraft-bright: var(--color-kraft-bright);
+  --color-redact: var(--color-redact);
+  --color-charcoal: var(--color-charcoal);
+  --color-stamp-red: var(--color-stamp-red);
+  --color-stamp-red-bright: var(--color-stamp-red-bright);
+  --color-stamp-green: var(--color-stamp-green);
+  --color-stamp-green-bright: var(--color-stamp-green-bright);
+  --color-stamp-amber: var(--color-stamp-amber);
+
+  --font-display: var(--font-special-elite);
+  --font-mono: var(--font-plex-mono);
+  --font-sans: var(--font-work-sans);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+/* Textura sutil de papel/grano — atmósfera de dossier, no gradiente plano */
+.dossier-grain {
+  position: relative;
+}
+.dossier-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      #000 0px,
+      transparent 1px,
+      transparent 2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #000 0px,
+      transparent 1px,
+      transparent 2px
+    );
+  mix-blend-mode: overlay;
+}
+
+/* Ficha de carpeta con esquina "grapada" */
+.dossier-card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-surface-line);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% 100%,
+    0 100%
+  );
+}
+.dossier-card::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: var(--color-parchment-dim);
+  box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+}
+
+/* Barra de redacción — se descubre en hover/focus/tap */
+.redacted {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+.redacted .redacted-bar {
+  position: absolute;
+  inset: 0;
+  background: var(--color-redact);
+  transform-origin: left;
+  transition: transform 320ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.redacted:hover .redacted-bar,
+.redacted:focus-visible .redacted-bar,
+.redacted[data-revealed="true"] .redacted-bar {
+  transform: scaleX(0);
+}
+.redacted .redacted-content {
+  visibility: hidden;
+}
+.redacted:hover .redacted-content,
+.redacted:focus-visible .redacted-content,
+.redacted[data-revealed="true"] .redacted-content {
+  visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .redacted .redacted-bar {
+    transition: none;
+  }
+}
+
+/* Sello de goma */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid currentColor;
+  border-radius: 4px;
+  padding: 0.35em 0.9em;
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+  box-shadow: 0 0 0 1px currentColor inset;
+  filter: saturate(1.1);
+}
+
+.paper-mode {
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
+  --surface: #fff9ec;
+  --surface-line: var(--color-paper-dim);
+  --muted: var(--color-ink-soft);
 }

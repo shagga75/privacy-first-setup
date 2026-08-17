@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Privacy First Setup
 
-## Getting Started
+Guía interactiva y herramientas de código abierto para configurar una wallet
+Bitcoin con buenas prácticas de privacidad desde el primer recibo — coin
+control, labels, Payjoin, Silent Payments — sin necesidad de ser una persona
+técnica.
 
-First, run the development server:
+Todo corre client-side. No hay backend, no hay cuentas, no hay analítica, y
+ninguna de las dos herramientas envía datos a un servidor:
+
+- **Guía / Wizard** (`/wizard`) — según tu nivel (principiante/intermedio) y
+  el uso que le vas a dar a la wallet (ahorro, gasto diario, donaciones),
+  genera una checklist priorizada y descargable en Markdown.
+- **Privacy Score** (`/privacy-score`) — cuestionario de hábitos + detector
+  de reutilización de direcciones (comparación de texto 100% local, sin
+  llamadas a exploradores de blockchain).
+
+Pensado especialmente para usuarios en LATAM, África y países con censura
+financiera o controles de capital — pero útil para cualquiera que no quiera
+que su patrimonio sea de lectura pública.
+
+## Stack
+
+Next.js 16 (App Router) + TypeScript + Tailwind CSS v4. Sin base de datos,
+sin API routes: el sitio entero se puede servir como estático.
+
+## Desarrollo
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estado / roadmap
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [x] Wizard de configuración por nivel + caso de uso
+- [x] Privacy Score con cuestionario ponderado + detector de reutilización
+- [x] Bilingüe (es/en), estructura preparada para más idiomas
+- [ ] Soporte offline completo (PWA / service worker)
+- [ ] Importar descriptors/xpub en modo watch-only para auditoría automática
+- [ ] Integración PSBT con wallets externas (Sparrow, Electrum)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Los textos de contenido (`src/lib/principles.ts`, `src/lib/dictionaries.ts`)
+están separados del código de UI específicamente para facilitar traducciones
+y correcciones de contenido vía PR.
 
-## Learn More
+## Licencia
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT — ver [LICENSE](./LICENSE).
