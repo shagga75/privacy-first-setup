@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { QuestionRow } from "@/components/score/QuestionRow";
 import { StampBadge } from "@/components/StampBadge";
 import { useLang } from "@/lib/i18n";
@@ -200,6 +201,7 @@ export default function PrivacyScorePage() {
           </section>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

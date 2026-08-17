@@ -103,6 +103,7 @@ type Dict = {
     menu: string;
     language: string;
     skipToContent: string;
+    reportIssue: string;
   };
 };
 
@@ -222,6 +223,7 @@ const es: Dict = {
     menu: "Menú",
     language: "Idioma",
     skipToContent: "Saltar al contenido",
+    reportIssue: "¿Encontraste un error? Reportalo en GitHub",
   },
 };
 
@@ -341,6 +343,7 @@ const en: Dict = {
     menu: "Menu",
     language: "Language",
     skipToContent: "Skip to content",
+    reportIssue: "Found a bug? Report it on GitHub",
   },
 };
 
@@ -460,6 +463,7 @@ const pt: Dict = {
     menu: "Menu",
     language: "Idioma",
     skipToContent: "Pular para o conteúdo",
+    reportIssue: "Encontrou um erro? Reporte no GitHub",
   },
 };
 
@@ -579,6 +583,7 @@ const fr: Dict = {
     menu: "Menu",
     language: "Langue",
     skipToContent: "Aller au contenu",
+    reportIssue: "Tu as trouvé un bug ? Signale-le sur GitHub",
   },
 };
 

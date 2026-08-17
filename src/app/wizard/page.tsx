@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { FolderTabs } from "@/components/wizard/FolderTabs";
 import { OptionCard } from "@/components/wizard/OptionCard";
 import { ChecklistItem } from "@/components/wizard/ChecklistItem";
@@ -214,6 +215,7 @@ export default function WizardPage() {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

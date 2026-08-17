@@ -1,6 +1,7 @@
 "use client";
 
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { useLang } from "@/lib/i18n";
 import { GLOSSARY } from "@/lib/glossary";
 
@@ -39,6 +40,7 @@ export default function GlossaryPage() {
           </dl>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

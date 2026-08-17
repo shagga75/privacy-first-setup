@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { RedactedReveal } from "@/components/RedactedReveal";
 import { useLang } from "@/lib/i18n";
 
@@ -107,11 +108,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="border-t border-surface-line">
-        <div className="mx-auto max-w-5xl px-6 py-8">
-          <p className="font-mono text-xs text-muted">{t("landing.footerNote")}</p>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
