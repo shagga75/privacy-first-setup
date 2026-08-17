@@ -25,7 +25,7 @@ export default function Image() {
             fontSize: 22,
             letterSpacing: 4,
             textTransform: "uppercase",
-            color: "#c9a063",
+            color: "#f7931a",
             marginBottom: 28,
           }}
         >
@@ -58,7 +58,7 @@ export default function Image() {
               display: "flex",
               width: 180,
               height: 26,
-              background: "#c9a063",
+              background: "#f7931a",
               borderRadius: 3,
             }}
           />

@@ -20,8 +20,11 @@
   --color-parchment-dim: #b9ac93;
 
   --color-redact: #0a0908;
-  --color-kraft: #c9a063;
-  --color-kraft-bright: #e0b878;
+  /* Acento: naranja oficial de Bitcoin (#F7931A) en vez del tostado kraft
+     original — el nombre de la variable quedó igual para no tocar todos
+     los usos, pero el valor ya no es "kraft". */
+  --color-kraft: #f7931a;
+  --color-kraft-bright: #ffab3d;
   --color-stamp-red: #b23a2e;
   /* Ajustado desde #d4574a: ese tono no llegaba a 4.5:1 (WCAG AA) como
      texto sobre charcoal/surface. */
@@ -196,8 +199,8 @@ body {
     --surface: #f7f3ea;
     --surface-line: #d8cfba;
     --muted: #5c5346;
-    --color-kraft: #836840;
-    --color-kraft-bright: #836840;
+    --color-kraft: #945810;
+    --color-kraft-bright: #945810;
     --color-stamp-red-bright: var(--color-stamp-red-deep);
     --color-stamp-green-bright: var(--color-stamp-green-deep);
     --color-stamp-amber: var(--color-stamp-amber-deep);
