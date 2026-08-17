@@ -31,6 +31,13 @@ npm install
 npm run dev
 ```
 
+Tests (Vitest, sin DOM — corren la lógica de scoring y validan que no falte
+ninguna traducción):
+
+```bash
+npm run test
+```
+
 ## Estado / roadmap
 
 - [x] Wizard de configuración por nivel + caso de uso
@@ -38,6 +45,9 @@ npm run dev
 - [x] Offline (PWA / service worker)
 - [x] 4 idiomas — es, en, pt, fr — estructura lista para sumar más
 - [x] Open Graph / Twitter card, sitemap.xml, robots.txt
+- [x] Glosario de términos técnicos + indicador offline
+- [x] Header responsive (menú mobile)
+- [x] Tests unitarios para el motor de scoring y la integridad de contenido
 - [ ] Importar descriptors/xpub en modo watch-only para auditoría automática (fase futura, gated por financiamiento)
 - [ ] Integración PSBT con wallets externas — Sparrow, Electrum (fase futura, gated por financiamiento)
 

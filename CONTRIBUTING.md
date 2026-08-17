@@ -15,12 +15,15 @@ Antes de abrir un PR, corré:
 ```bash
 npx tsc --noEmit
 npm run lint
+npm run test
 npm run build
 ```
 
-Los tres tienen que terminar sin errores. TypeScript está configurado para
-rechazar el build si falta un string en cualquiera de los 4 idiomas — así
-que una traducción incompleta no puede llegar a producción por accidente.
+Los cuatro tienen que terminar sin errores. TypeScript está configurado
+para rechazar el build si falta un string en cualquiera de los 4 idiomas, y
+los tests (`src/lib/*.test.ts`, Vitest) validan además que no haya ids
+duplicados en `principles.ts`/`glossary.ts` ni strings vacíos — así que una
+traducción o un dato incompleto no puede llegar a producción por accidente.
 
 ## Traducir o corregir contenido
 
