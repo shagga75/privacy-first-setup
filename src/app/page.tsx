@@ -42,7 +42,7 @@ export default function Home() {
               <p className="font-mono text-[10px] uppercase tracking-widest text-muted">
                 {t("landing.redactedLabel")}
               </p>
-              <RedactedReveal className="mt-3 block font-mono text-lg text-stamp-red-bright">
+              <RedactedReveal className="mt-3 block break-all font-mono text-lg text-stamp-red-bright">
                 {t("landing.redactedAddress")}
               </RedactedReveal>
               <p className="mt-4 text-sm leading-relaxed text-muted">
