@@ -14,6 +14,9 @@ ninguna de las dos herramientas envía datos a un servidor:
 - **Privacy Score** (`/privacy-score`) — cuestionario de hábitos + detector
   de reutilización de direcciones (comparación de texto 100% local, sin
   llamadas a exploradores de blockchain).
+- **Financiamiento** (`/grants`) — página general para postular a grants o
+  mostrar a donantes: qué está hecho (Fase A) y qué financiaría la próxima
+  etapa (Fase B, integración Bitcoin real).
 
 Pensado especialmente para usuarios en LATAM, África y países con censura
 financiera o controles de capital — pero útil para cualquiera que no quiera
@@ -51,6 +54,7 @@ npm run test
 - [x] Auditoría de accesibilidad (contraste WCAG, foco, labels)
 - [x] Link de referencia externa verificado por principio + vista imprimible del checklist
 - [x] Feedback sin analytics (link a GitHub Issues)
+- [x] Página de financiamiento (`/grants`) para postulaciones a grants/donantes
 - [ ] Importar descriptors/xpub en modo watch-only para auditoría automática (fase futura, gated por financiamiento)
 - [ ] Integración PSBT con wallets externas — Sparrow, Electrum (fase futura, gated por financiamiento)
 

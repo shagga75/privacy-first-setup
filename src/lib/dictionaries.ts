@@ -100,12 +100,32 @@ type Dict = {
     title: string;
     subtitle: string;
   };
+  grants: {
+    kicker: string;
+    title: string;
+    subtitle: string;
+    phaseALabel: string;
+    phaseATitle: string;
+    phaseAIntro: string;
+    phaseAItems: string[];
+    phaseBLabel: string;
+    phaseBTitle: string;
+    phaseBIntro: string;
+    phaseBItems: string[];
+    whyKicker: string;
+    whyTitle: string;
+    whyBody: string;
+    ctaTitle: string;
+    ctaBody: string;
+    ctaButton: string;
+  };
   common: {
     offlineNotice: string;
     menu: string;
     language: string;
     skipToContent: string;
     reportIssue: string;
+    grantsLink: string;
   };
 };
 
@@ -222,12 +242,52 @@ const es: Dict = {
     subtitle:
       "Los términos técnicos que vas a encontrar en la guía y el Privacy Score, explicados sin vueltas.",
   },
+  grants: {
+    kicker: "Solicitud de financiamiento",
+    title: "Ayudanos a construir la próxima fase de Privacy First Setup",
+    subtitle:
+      "Ya construimos la capa educativa, funcionando en producción, sin haber recibido financiamiento todavía. Buscamos fondos para la parte que toca Bitcoin de verdad: inspección y construcción real de wallets, no solo un cuestionario.",
+    phaseALabel: "Fase A — Completa",
+    phaseATitle: "La capa educativa, en producción hoy",
+    phaseAIntro:
+      "Todo esto ya está construido, deployado y funcionando, sin haber recibido un centavo de financiamiento:",
+    phaseAItems: [
+      "Wizard interactivo que recomienda una configuración de privacidad según nivel y caso de uso",
+      "Privacy Score: cuestionario ponderado + detector de reutilización de direcciones, 100% local",
+      "Glosario de términos técnicos pensado para público no técnico",
+      "4 idiomas (español, inglés, portugués, francés), con la arquitectura lista para sumar más",
+      "PWA con soporte offline real",
+      "Auditoría de accesibilidad: contraste WCAG, navegación por teclado, labels de formulario",
+      "Cero backend, cero cuentas, cero analítica — todo el cálculo corre en el navegador",
+      "Código abierto bajo licencia MIT, con tests automatizados",
+    ],
+    phaseBLabel: "Fase B — Buscando financiamiento",
+    phaseBTitle: "Lo que financiaría esta próxima etapa",
+    phaseBIntro:
+      "El salto de una herramienta educativa a una herramienta de auditoría real requiere tocar criptografía Bitcoin de verdad:",
+    phaseBItems: [
+      "Integración con librerías Bitcoin reales (bitcoinjs-lib / @scure/btc-signer o BDK compilado a WASM)",
+      "Soporte real de descriptors y PSBT: importar una wallet en modo watch-only y auditar su privacidad de verdad, no solo con un cuestionario",
+      "Detección real de reutilización de direcciones y heurísticas de clustering sobre UTXOs, sin depender de que el usuario pegue texto a mano",
+      "Conexión opcional a un nodo propio (Electrum/Esplora) para que el análisis no dependa de un explorador de terceros",
+      "Recomendaciones accionables generadas a partir del análisis real de la wallet, dentro de la misma herramienta",
+    ],
+    whyKicker: "Por qué financiar esto",
+    whyTitle: "Ejecución demostrada, con un alcance deliberadamente acotado",
+    whyBody:
+      "La mayoría de las herramientas de privacidad de Bitcoin asumen un usuario técnico. Privacy First Setup empieza por el otro extremo: alguien que recién instaló su primera wallet, en un idioma que no es inglés, muchas veces en un país con controles de capital o vigilancia financiera activa. La Fase A ya demuestra que el proyecto puede shippear rápido y con calidad — tests, auditoría de accesibilidad, i18n real — sin gastar de más: corrió entero sin backend ni infraestructura paga. La Fase B es el salto que lo convierte en una herramienta de auditoría real.",
+    ctaTitle: "¿Representás un programa de financiamiento, o querés colaborar?",
+    ctaBody:
+      "Abrí un issue en el repositorio — ahí respondemos con más detalle técnico, alcance de trabajo y lo que haga falta para evaluar la propuesta.",
+    ctaButton: "Contactar en GitHub",
+  },
   common: {
     offlineNotice: "Sin conexión — mostrando la versión guardada en caché",
     menu: "Menú",
     language: "Idioma",
     skipToContent: "Saltar al contenido",
     reportIssue: "¿Encontraste un error? Reportalo en GitHub",
+    grantsLink: "Financiamiento",
   },
 };
 
@@ -344,12 +404,52 @@ const en: Dict = {
     subtitle:
       "The technical terms you'll run into across the guide and the Privacy Score, explained plainly.",
   },
+  grants: {
+    kicker: "Funding request",
+    title: "Help us build the next phase of Privacy First Setup",
+    subtitle:
+      "We've already built the educational layer, live in production, without having received any funding yet. We're looking for funds for the part that actually touches Bitcoin: real wallet inspection and construction, not just a questionnaire.",
+    phaseALabel: "Phase A — Complete",
+    phaseATitle: "The educational layer, live today",
+    phaseAIntro:
+      "All of this is already built, deployed, and working, without a cent of funding:",
+    phaseAItems: [
+      "Interactive wizard that recommends a privacy setup based on level and use case",
+      "Privacy Score: weighted questionnaire + address reuse detector, 100% local",
+      "Glossary of technical terms aimed at a non-technical audience",
+      "4 languages (Spanish, English, Portuguese, French), with the architecture ready to add more",
+      "PWA with real offline support",
+      "Accessibility audit: WCAG contrast, keyboard navigation, form labels",
+      "Zero backend, zero accounts, zero analytics — every calculation runs in the browser",
+      "Open source under the MIT license, with automated tests",
+    ],
+    phaseBLabel: "Phase B — Seeking funding",
+    phaseBTitle: "What this next stage would fund",
+    phaseBIntro:
+      "The jump from an educational tool to a real audit tool requires touching actual Bitcoin cryptography:",
+    phaseBItems: [
+      "Integration with real Bitcoin libraries (bitcoinjs-lib / @scure/btc-signer or BDK compiled to WASM)",
+      "Real descriptor and PSBT support: import a wallet in watch-only mode and actually audit its privacy, not just answer a questionnaire",
+      "Real address reuse detection and UTXO clustering heuristics, without relying on the user pasting text by hand",
+      "Optional connection to your own node (Electrum/Esplora) so the analysis doesn't depend on a third-party explorer",
+      "Actionable recommendations generated from the wallet's real analysis, inside the same tool",
+    ],
+    whyKicker: "Why fund this",
+    whyTitle: "Demonstrated execution, with a deliberately narrow scope",
+    whyBody:
+      "Most Bitcoin privacy tools assume a technical user. Privacy First Setup starts from the other end: someone who just installed their first wallet, in a language that isn't English, often in a country with capital controls or active financial surveillance. Phase A already shows the project can ship fast and with quality — tests, an accessibility audit, real i18n — without overspending: it ran entirely without a backend or paid infrastructure. Phase B is the jump that turns it into a real audit tool.",
+    ctaTitle: "Represent a funding program, or want to collaborate?",
+    ctaBody:
+      "Open an issue on the repository — we'll respond there with more technical detail, scope of work, and whatever's needed to evaluate the proposal.",
+    ctaButton: "Contact on GitHub",
+  },
   common: {
     offlineNotice: "Offline — showing the cached version",
     menu: "Menu",
     language: "Language",
     skipToContent: "Skip to content",
     reportIssue: "Found a bug? Report it on GitHub",
+    grantsLink: "Funding",
   },
 };
 
@@ -466,12 +566,52 @@ const pt: Dict = {
     subtitle:
       "Os termos técnicos que você vai encontrar no guia e no Privacy Score, explicados sem rodeios.",
   },
+  grants: {
+    kicker: "Pedido de financiamento",
+    title: "Ajude a construir a próxima fase do Privacy First Setup",
+    subtitle:
+      "Já construímos a camada educativa, funcionando em produção, sem ter recebido financiamento até agora. Buscamos recursos para a parte que realmente toca Bitcoin: inspeção e construção real de carteiras, não apenas um questionário.",
+    phaseALabel: "Fase A — Completa",
+    phaseATitle: "A camada educativa, em produção hoje",
+    phaseAIntro:
+      "Tudo isso já está construído, publicado e funcionando, sem um centavo de financiamento:",
+    phaseAItems: [
+      "Wizard interativo que recomenda uma configuração de privacidade de acordo com nível e caso de uso",
+      "Privacy Score: questionário ponderado + detector de reutilização de endereços, 100% local",
+      "Glossário de termos técnicos pensado para o público não técnico",
+      "4 idiomas (espanhol, inglês, português, francês), com a arquitetura pronta para adicionar mais",
+      "PWA com suporte offline real",
+      "Auditoria de acessibilidade: contraste WCAG, navegação por teclado, labels de formulário",
+      "Zero backend, zero contas, zero analytics — todo o cálculo roda no navegador",
+      "Código aberto sob licença MIT, com testes automatizados",
+    ],
+    phaseBLabel: "Fase B — Buscando financiamento",
+    phaseBTitle: "O que esta próxima etapa financiaria",
+    phaseBIntro:
+      "O salto de uma ferramenta educativa para uma ferramenta de auditoria real exige tocar criptografia Bitcoin de verdade:",
+    phaseBItems: [
+      "Integração com bibliotecas Bitcoin reais (bitcoinjs-lib / @scure/btc-signer ou BDK compilado para WASM)",
+      "Suporte real a descriptors e PSBT: importar uma carteira em modo watch-only e auditar sua privacidade de verdade, não apenas com um questionário",
+      "Detecção real de reutilização de endereços e heurísticas de clustering sobre UTXOs, sem depender de o usuário colar texto manualmente",
+      "Conexão opcional a um node próprio (Electrum/Esplora) para que a análise não dependa de um explorador de terceiros",
+      "Recomendações acionáveis geradas a partir da análise real da carteira, dentro da mesma ferramenta",
+    ],
+    whyKicker: "Por que financiar isso",
+    whyTitle: "Execução demonstrada, com um escopo deliberadamente restrito",
+    whyBody:
+      "A maioria das ferramentas de privacidade Bitcoin assume um usuário técnico. O Privacy First Setup começa pelo outro extremo: alguém que acabou de instalar sua primeira carteira, em um idioma que não é inglês, muitas vezes em um país com controles de capital ou vigilância financeira ativa. A Fase A já mostra que o projeto consegue entregar rápido e com qualidade — testes, auditoria de acessibilidade, i18n real — sem gastar demais: rodou inteiramente sem backend nem infraestrutura paga. A Fase B é o salto que o transforma em uma ferramenta de auditoria real.",
+    ctaTitle: "Representa um programa de financiamento, ou quer colaborar?",
+    ctaBody:
+      "Abra uma issue no repositório — vamos responder por lá com mais detalhe técnico, escopo de trabalho e o que for necessário para avaliar a proposta.",
+    ctaButton: "Contatar no GitHub",
+  },
   common: {
     offlineNotice: "Sem conexão — mostrando a versão salva em cache",
     menu: "Menu",
     language: "Idioma",
     skipToContent: "Pular para o conteúdo",
     reportIssue: "Encontrou um erro? Reporte no GitHub",
+    grantsLink: "Financiamento",
   },
 };
 
@@ -588,12 +728,52 @@ const fr: Dict = {
     subtitle:
       "Les termes techniques que tu vas croiser dans le guide et le Privacy Score, expliqués simplement.",
   },
+  grants: {
+    kicker: "Demande de financement",
+    title: "Aide-nous à construire la prochaine phase de Privacy First Setup",
+    subtitle:
+      "On a déjà construit la couche éducative, en production, sans avoir reçu de financement pour l'instant. On cherche des fonds pour la partie qui touche vraiment Bitcoin : inspection et construction réelle de wallets, pas juste un questionnaire.",
+    phaseALabel: "Phase A — Terminée",
+    phaseATitle: "La couche éducative, en production aujourd'hui",
+    phaseAIntro:
+      "Tout ça est déjà construit, déployé et fonctionnel, sans un centime de financement :",
+    phaseAItems: [
+      "Assistant interactif qui recommande une configuration de confidentialité selon le niveau et l'usage",
+      "Privacy Score : questionnaire pondéré + détecteur de réutilisation d'adresses, 100% local",
+      "Glossaire de termes techniques pensé pour un public non technique",
+      "4 langues (espagnol, anglais, portugais, français), avec une architecture prête à en accueillir d'autres",
+      "PWA avec véritable support hors ligne",
+      "Audit d'accessibilité : contraste WCAG, navigation au clavier, labels de formulaire",
+      "Zéro backend, zéro compte, zéro analytics — tout le calcul tourne dans le navigateur",
+      "Open source sous licence MIT, avec des tests automatisés",
+    ],
+    phaseBLabel: "Phase B — Recherche de financement",
+    phaseBTitle: "Ce que financerait cette prochaine étape",
+    phaseBIntro:
+      "Passer d'un outil éducatif à un véritable outil d'audit implique de toucher à la cryptographie Bitcoin réelle :",
+    phaseBItems: [
+      "Intégration avec de vraies librairies Bitcoin (bitcoinjs-lib / @scure/btc-signer ou BDK compilé en WASM)",
+      "Vrai support des descriptors et PSBT : importer un wallet en mode watch-only et auditer réellement sa confidentialité, pas seulement via un questionnaire",
+      "Détection réelle de la réutilisation d'adresses et heuristiques de clustering sur les UTXOs, sans dépendre du fait que l'utilisateur colle du texte à la main",
+      "Connexion optionnelle à ton propre nœud (Electrum/Esplora) pour que l'analyse ne dépende pas d'un explorateur tiers",
+      "Recommandations exploitables générées à partir de l'analyse réelle du wallet, dans le même outil",
+    ],
+    whyKicker: "Pourquoi financer ça",
+    whyTitle: "Une exécution démontrée, avec un périmètre délibérément restreint",
+    whyBody:
+      "La plupart des outils de confidentialité Bitcoin supposent un utilisateur technique. Privacy First Setup part de l'autre bout : quelqu'un qui vient d'installer son premier wallet, dans une langue qui n'est pas l'anglais, souvent dans un pays avec contrôle des capitaux ou surveillance financière active. La Phase A montre déjà que le projet peut livrer vite et avec qualité — tests, audit d'accessibilité, vraie i18n — sans dépenser plus que nécessaire : tout a tourné sans backend ni infrastructure payante. La Phase B est le saut qui en fait un véritable outil d'audit.",
+    ctaTitle: "Tu représentes un programme de financement, ou tu veux collaborer ?",
+    ctaBody:
+      "Ouvre une issue sur le dépôt — on y répondra avec plus de détails techniques, le périmètre du travail et tout ce qu'il faut pour évaluer la proposition.",
+    ctaButton: "Contacter sur GitHub",
+  },
   common: {
     offlineNotice: "Hors ligne — affichage de la version mise en cache",
     menu: "Menu",
     language: "Langue",
     skipToContent: "Aller au contenu",
     reportIssue: "Tu as trouvé un bug ? Signale-le sur GitHub",
+    grantsLink: "Financement",
   },
 };
 

@@ -4,6 +4,7 @@ const APP_SHELL = [
   "/wizard",
   "/privacy-score",
   "/glossary",
+  "/grants",
   "/icon-192.png",
   "/icon-512.png",
 ];
