@@ -10,7 +10,7 @@ export function OfflineBanner() {
   if (online) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 flex justify-center px-4 pb-4">
+    <div className="fixed inset-x-0 bottom-0 z-50 flex justify-center px-4 pb-4 print:hidden">
       <div
         className="stamp text-stamp-red-bright text-xs"
         style={{ transform: "rotate(0deg)" }}

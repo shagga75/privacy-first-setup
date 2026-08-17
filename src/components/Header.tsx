@@ -57,11 +57,11 @@ export function Header() {
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-kraft focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:uppercase focus:text-charcoal"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-kraft focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:uppercase focus:text-charcoal print:hidden"
       >
         {t("common.skipToContent")}
       </a>
-      <header className="border-b border-surface-line">
+      <header className="border-b border-surface-line print:hidden">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-5">
           <Link
             href="/"

@@ -183,3 +183,43 @@ body {
   --surface-line: var(--color-paper-dim);
   --muted: var(--color-ink-soft);
 }
+
+/* Los colores del tema están calibrados para fondo oscuro — sobre papel
+   blanco (impresión) muchos casi no se ven (ej. parchment contra blanco da
+   1.27:1). Se sobrescriben las variables en la raíz para que toda la UI
+   (clases Tailwind y var() directo) herede automáticamente la paleta
+   imprimible, sin tocar cada componente. */
+@media print {
+  :root {
+    --background: #ffffff;
+    --foreground: #1a1710;
+    --surface: #f7f3ea;
+    --surface-line: #d8cfba;
+    --muted: #5c5346;
+    --color-kraft: #836840;
+    --color-kraft-bright: #836840;
+    --color-stamp-red-bright: var(--color-stamp-red-deep);
+    --color-stamp-green-bright: var(--color-stamp-green-deep);
+    --color-stamp-amber: var(--color-stamp-amber-deep);
+  }
+
+  body {
+    background: #ffffff;
+  }
+
+  .dossier-grain::before {
+    display: none;
+  }
+
+  .dossier-card {
+    break-inside: avoid;
+  }
+
+  /* Sin hover para revelar en papel: se imprime siempre destapado. */
+  .redacted .redacted-bar {
+    display: none;
+  }
+  .redacted .redacted-content {
+    visibility: visible;
+  }
+}

@@ -69,6 +69,8 @@ type Dict = {
     categoryHabit: string;
     categoryAdvanced: string;
     scoreCta: string;
+    learnMore: string;
+    printButton: string;
   };
   score: {
     kicker: string;
@@ -184,6 +186,8 @@ const es: Dict = {
     categoryHabit: "Hábito recurrente",
     categoryAdvanced: "Técnica avanzada",
     scoreCta: "¿Ya tenés una wallet configurada? Medí tu Privacy Score →",
+    learnMore: "Más información",
+    printButton: "Imprimir checklist",
   },
   score: {
     kicker: "Auditoría de campo",
@@ -304,6 +308,8 @@ const en: Dict = {
     categoryHabit: "Recurring habit",
     categoryAdvanced: "Advanced technique",
     scoreCta: "Already have a wallet set up? Measure your Privacy Score →",
+    learnMore: "Learn more",
+    printButton: "Print checklist",
   },
   score: {
     kicker: "Field audit",
@@ -424,6 +430,8 @@ const pt: Dict = {
     categoryHabit: "Hábito recorrente",
     categoryAdvanced: "Técnica avançada",
     scoreCta: "Já tem uma carteira configurada? Meça o seu Privacy Score →",
+    learnMore: "Mais informações",
+    printButton: "Imprimir checklist",
   },
   score: {
     kicker: "Auditoria de campo",
@@ -544,6 +552,8 @@ const fr: Dict = {
     categoryHabit: "Habitude récurrente",
     categoryAdvanced: "Technique avancée",
     scoreCta: "Tu as déjà un wallet configuré ? Mesure ton Privacy Score →",
+    learnMore: "En savoir plus",
+    printButton: "Imprimer la checklist",
   },
   score: {
     kicker: "Audit de terrain",

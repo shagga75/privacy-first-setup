@@ -64,16 +64,18 @@ export default function WizardPage() {
           </p>
 
           <div className="mt-10">
-            <FolderTabs
-              step={step}
-              labels={[
-                dict.wizard.stepLevel,
-                dict.wizard.stepUseCase,
-                dict.wizard.stepResult,
-              ]}
-              maxReached={maxReached}
-              onSelect={setStep}
-            />
+            <div className="print:hidden">
+              <FolderTabs
+                step={step}
+                labels={[
+                  dict.wizard.stepLevel,
+                  dict.wizard.stepUseCase,
+                  dict.wizard.stepResult,
+                ]}
+                maxReached={maxReached}
+                onSelect={setStep}
+              />
+            </div>
             <div className="border-t border-surface-line bg-surface p-8">
               {step === 1 && (
                 <div>
@@ -161,6 +163,7 @@ export default function WizardPage() {
                         principle={p}
                         lang={lang}
                         categoryLabel={categoryLabel(p.category)}
+                        learnMoreLabel={dict.wizard.learnMore}
                         checked={checked.has(p.id)}
                         onToggle={() => {
                           const next = new Set(checked);
@@ -172,7 +175,7 @@ export default function WizardPage() {
                     ))}
                   </div>
 
-                  <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <div className="mt-8 flex flex-wrap items-center gap-4 print:hidden">
                     <button
                       type="button"
                       onClick={() =>
@@ -192,6 +195,13 @@ export default function WizardPage() {
                     </button>
                     <button
                       type="button"
+                      onClick={() => window.print()}
+                      className="cursor-pointer rounded-sm border border-surface-line px-5 py-2.5 font-mono text-xs uppercase tracking-wide text-foreground transition-colors duration-150 hover:border-kraft hover:text-kraft-bright"
+                    >
+                      {t("wizard.printButton")}
+                    </button>
+                    <button
+                      type="button"
                       onClick={() => {
                         setLevel(null);
                         setUseCase(null);
@@ -205,7 +215,7 @@ export default function WizardPage() {
 
                   <Link
                     href="/privacy-score"
-                    className="mt-10 inline-block font-mono text-sm text-stamp-green-bright hover:text-foreground"
+                    className="mt-10 inline-block font-mono text-sm text-stamp-green-bright hover:text-foreground print:hidden"
                   >
                     {t("wizard.scoreCta")}
                   </Link>

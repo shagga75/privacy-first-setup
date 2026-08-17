@@ -48,6 +48,9 @@ npm run test
 - [x] Glosario de términos técnicos + indicador offline
 - [x] Header responsive (menú mobile)
 - [x] Tests unitarios para el motor de scoring y la integridad de contenido
+- [x] Auditoría de accesibilidad (contraste WCAG, foco, labels)
+- [x] Link de referencia externa verificado por principio + vista imprimible del checklist
+- [x] Feedback sin analytics (link a GitHub Issues)
 - [ ] Importar descriptors/xpub en modo watch-only para auditoría automática (fase futura, gated por financiamiento)
 - [ ] Integración PSBT con wallets externas — Sparrow, Electrum (fase futura, gated por financiamiento)
 

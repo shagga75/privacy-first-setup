@@ -7,7 +7,7 @@ export function Footer() {
   const { t } = useLang();
 
   return (
-    <footer className="border-t border-surface-line">
+    <footer className="border-t border-surface-line print:hidden">
       <div className="mx-auto flex max-w-5xl flex-col gap-3 px-6 py-8 sm:flex-row sm:items-center sm:justify-between">
         <p className="font-mono text-xs text-muted">{t("landing.footerNote")}</p>
         <a

@@ -13,11 +13,14 @@ export type Principle = {
   weight: 1 | 2 | 3;
   levels: Level[];
   useCases: UseCase[];
+  /** Referencia externa verificada (BIP, Bitcoin Optech, etc). Opcional. */
+  learnMoreUrl?: string;
 } & Record<Lang, PrincipleCopy>;
 
 export const PRINCIPLES: Principle[] = [
   {
     id: "hd-descriptors",
+    learnMoreUrl: "https://bitcoinops.org/en/topics/output-script-descriptors/",
     category: "setup",
     weight: 2,
     levels: ["beginner", "intermediate"],
@@ -45,6 +48,7 @@ export const PRINCIPLES: Principle[] = [
   },
   {
     id: "coin-control",
+    learnMoreUrl: "https://bitcoinops.org/en/topics/coin-selection/",
     category: "setup",
     weight: 3,
     levels: ["beginner", "intermediate"],
@@ -72,6 +76,7 @@ export const PRINCIPLES: Principle[] = [
   },
   {
     id: "labels",
+    learnMoreUrl: "https://github.com/bitcoin/bips/blob/master/bip-0329.mediawiki",
     category: "habit",
     weight: 2,
     levels: ["beginner", "intermediate"],
@@ -99,6 +104,7 @@ export const PRINCIPLES: Principle[] = [
   },
   {
     id: "no-reuse",
+    learnMoreUrl: "https://bitcoinops.org/en/topics/output-linking/",
     category: "habit",
     weight: 3,
     levels: ["beginner", "intermediate"],
@@ -126,6 +132,7 @@ export const PRINCIPLES: Principle[] = [
   },
   {
     id: "verify-change",
+    learnMoreUrl: "https://bitcoinops.org/en/topics/output-linking/",
     category: "habit",
     weight: 2,
     levels: ["intermediate"],
@@ -153,6 +160,7 @@ export const PRINCIPLES: Principle[] = [
   },
   {
     id: "own-node",
+    learnMoreUrl: "https://bitcoin.org/en/full-node",
     category: "advanced",
     weight: 2,
     levels: ["intermediate"],
@@ -180,6 +188,7 @@ export const PRINCIPLES: Principle[] = [
   },
   {
     id: "tor",
+    learnMoreUrl: "https://en.bitcoin.it/wiki/Tor",
     category: "setup",
     weight: 1,
     levels: ["beginner", "intermediate"],
@@ -207,6 +216,7 @@ export const PRINCIPLES: Principle[] = [
   },
   {
     id: "payjoin",
+    learnMoreUrl: "https://bitcoinops.org/en/topics/payjoin/",
     category: "advanced",
     weight: 1,
     levels: ["beginner", "intermediate"],
@@ -234,6 +244,7 @@ export const PRINCIPLES: Principle[] = [
   },
   {
     id: "silent-payments",
+    learnMoreUrl: "https://bitcoinops.org/en/topics/silent-payments/",
     category: "advanced",
     weight: 1,
     levels: ["intermediate"],
@@ -261,6 +272,7 @@ export const PRINCIPLES: Principle[] = [
   },
   {
     id: "no-public-xpub",
+    learnMoreUrl: "https://bitcoinops.org/en/topics/output-script-descriptors/",
     category: "habit",
     weight: 3,
     levels: ["beginner", "intermediate"],
@@ -288,6 +300,7 @@ export const PRINCIPLES: Principle[] = [
   },
   {
     id: "passphrase",
+    learnMoreUrl: "https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki",
     category: "advanced",
     weight: 2,
     levels: ["intermediate"],
@@ -369,6 +382,7 @@ export const PRINCIPLES: Principle[] = [
   },
   {
     id: "coinjoin",
+    learnMoreUrl: "https://bitcoinops.org/en/topics/coinjoin/",
     category: "advanced",
     weight: 1,
     levels: ["intermediate"],
@@ -396,6 +410,7 @@ export const PRINCIPLES: Principle[] = [
   },
   {
     id: "batching",
+    learnMoreUrl: "https://bitcoinops.org/en/payment-batching/",
     category: "habit",
     weight: 1,
     levels: ["intermediate"],

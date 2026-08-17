@@ -30,6 +30,14 @@ describe("PRINCIPLES data integrity", () => {
       }
     }
   });
+
+  it("only has well-formed https learnMoreUrl values", () => {
+    for (const p of PRINCIPLES) {
+      if (p.learnMoreUrl === undefined) continue;
+      expect(() => new URL(p.learnMoreUrl!), `${p.id}.learnMoreUrl`).not.toThrow();
+      expect(p.learnMoreUrl.startsWith("https://"), `${p.id}.learnMoreUrl`).toBe(true);
+    }
+  });
 });
 
 describe("principlesFor", () => {

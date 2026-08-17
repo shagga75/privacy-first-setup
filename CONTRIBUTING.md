@@ -38,6 +38,13 @@ Todo el texto vive separado del código de UI, en dos archivos:
 Para corregir una traducción existente, alcanza con editar el string
 correspondiente. No hace falta tocar ningún componente.
 
+Cada principio puede tener un `learnMoreUrl` opcional (referencia externa —
+BIP, Bitcoin Optech, etc). Antes de agregar uno nuevo, verificá que la URL
+resuelva de verdad (no la generes de memoria): `gh api
+repos/<owner>/<repo>/contents/<path>` para archivos en GitHub, o un `curl -I`
+simple para el resto. Un link roto en una herramienta que se presenta como
+confiable es peor que no tener link.
+
 ### Agregar un idioma nuevo
 
 1. Sumá el código de idioma a `Lang` en `src/lib/dictionaries.ts`.

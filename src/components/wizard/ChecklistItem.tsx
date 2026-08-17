@@ -11,12 +11,14 @@ export function ChecklistItem({
   principle,
   lang,
   categoryLabel,
+  learnMoreLabel,
   checked,
   onToggle,
 }: {
   principle: Principle;
   lang: Lang;
   categoryLabel: string;
+  learnMoreLabel: string;
   checked: boolean;
   onToggle: () => void;
 }) {
@@ -38,6 +40,17 @@ export function ChecklistItem({
         </p>
         <h4 className="mt-1 font-mono text-sm text-foreground">{copy.title}</h4>
         <p className="mt-2 text-sm leading-relaxed text-muted">{copy.body}</p>
+        {principle.learnMoreUrl && (
+          <a
+            href={principle.learnMoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="mt-2 inline-block font-mono text-xs uppercase tracking-wide text-kraft-bright underline-offset-4 hover:underline print:text-foreground"
+          >
+            {learnMoreLabel} ↗
+          </a>
+        )}
       </div>
     </label>
   );
