@@ -13,9 +13,11 @@
   --color-ink: #211d18;
   --color-ink-soft: #4a423a;
 
-  --color-charcoal: #1e1b16;
-  --color-charcoal-raised: #29241d;
-  --color-charcoal-line: #3a332a;
+  /* Antes #1e1b16 (marrón oscuro) — pedido del usuario: más claro y sin
+     el tinte marrón, gris neutro. */
+  --color-charcoal: #242424;
+  --color-charcoal-raised: #2f2f2f;
+  --color-charcoal-line: #454545;
   --color-parchment: #ede3cf;
   --color-parchment-dim: #b9ac93;
 

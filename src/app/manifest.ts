@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Guía interactiva y Privacy Score open-source para configurar una wallet Bitcoin con buenas prácticas de privacidad. Funciona sin conexión.",
     start_url: "/",
     display: "standalone",
-    background_color: "#1e1b16",
-    theme_color: "#1e1b16",
+    background_color: "#242424",
+    theme_color: "#242424",
     lang: "es",
     icons: [
       {
