@@ -37,12 +37,15 @@ npm run dev
 - [x] Privacy Score con cuestionario ponderado + detector de reutilización
 - [x] Offline (PWA / service worker)
 - [x] 4 idiomas — es, en, pt, fr — estructura lista para sumar más
+- [x] Open Graph / Twitter card, sitemap.xml, robots.txt
 - [ ] Importar descriptors/xpub en modo watch-only para auditoría automática (fase futura, gated por financiamiento)
 - [ ] Integración PSBT con wallets externas — Sparrow, Electrum (fase futura, gated por financiamiento)
 
 Los textos de contenido (`src/lib/principles.ts`, `src/lib/dictionaries.ts`)
 están separados del código de UI específicamente para facilitar traducciones
-y correcciones de contenido vía PR.
+y correcciones de contenido vía PR. Ver [CONTRIBUTING.md](./CONTRIBUTING.md)
+para la guía completa (cómo agregar un idioma, estilo de código, alcance del
+proyecto).
 
 ## Licencia
 

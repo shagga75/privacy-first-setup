@@ -3,6 +3,7 @@ import { Special_Elite, IBM_Plex_Mono, Work_Sans } from "next/font/google";
 import "./globals.css";
 import { LangProvider } from "@/lib/i18n";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const specialElite = Special_Elite({
   variable: "--font-special-elite",
@@ -21,15 +22,32 @@ const workSans = Work_Sans({
   subsets: ["latin"],
 });
 
+const title = "Privacy First Setup — Manual de campo para tu privacidad Bitcoin";
+const description =
+  "Guía interactiva open-source para configurar una wallet Bitcoin con buenas prácticas de privacidad desde el día uno: coin control, labels, Silent Payments y Payjoin.";
+
 export const metadata: Metadata = {
-  title: "Privacy First Setup — Manual de campo para tu privacidad Bitcoin",
-  description:
-    "Guía interactiva open-source para configurar una wallet Bitcoin con buenas prácticas de privacidad desde el día uno: coin control, labels, Silent Payments y Payjoin.",
-  applicationName: "Privacy First Setup",
+  metadataBase: new URL(SITE_URL),
+  title,
+  description,
+  applicationName: SITE_NAME,
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
     title: "Privacy Setup",
+  },
+  openGraph: {
+    title,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    type: "website",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description: SITE_DESCRIPTION,
   },
 };
 
